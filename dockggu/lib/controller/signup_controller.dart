@@ -18,7 +18,9 @@ class SignUpController extends GetxController {
 
   Future<void> signUp(BuildContext context) async {
     if (inputPw.text == inputRePw.text && inputPw.text.length >=6) {
-      var signupData = SignUpDTO(
+
+      if(inputName.text.length <6){
+var signupData = SignUpDTO(
           userEmail: inputEmail.text,
           userPassword: inputPw.text,
           userPasswordCheck: inputRePw.text,
@@ -26,6 +28,12 @@ class SignUpController extends GetxController {
       UserRepo.signUp(signupData, image.value!);
       Navigator.pop(context);
       Navigator.pop(context);
+      }else{
+              ToastMessage().showToast("이름은 5자 이하로 작성해주세요.");
+            Navigator.pop(context);
+
+      }
+      
     } else {
       ToastMessage().showToast("비밀번호를 확인해주세요.");
             Navigator.pop(context);

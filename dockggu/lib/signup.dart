@@ -92,7 +92,7 @@ class _SignUpState extends State<SignUp> {
             child: TextField(
               controller: controller.inputName,
               decoration: InputDecoration(
-                  hintText: '이름입력', contentPadding: EdgeInsets.zero),
+                  hintText: '이름입력 (5자 이하)', contentPadding: EdgeInsets.zero),
             ),
           ),
           SizedBox(
